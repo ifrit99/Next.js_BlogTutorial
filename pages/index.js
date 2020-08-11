@@ -12,6 +12,7 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
+        <h1>このブログはNext.jsチュートリアルで作成しました！</h1>
         <p>こんにちは！イフリトと申します。<br />
           2019年11月から異業種からIT業界へ転職致しました。<br />
           前職は食品工場で働いてました。今はSESで社内SEをしています。<br />
