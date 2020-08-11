@@ -2,6 +2,8 @@ import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
+import Link from 'next/link'
+import Date from '../components/date'
 
 export default function Home({ allPostsData }) {
   return (
@@ -12,7 +14,7 @@ export default function Home({ allPostsData }) {
       <section className={utilStyles.headingMd}>
         <p>こんにちは！イフリトと申します。<br />
           2019年11月から異業種からIT業界へ転職致しました。<br />
-          前職は食品工場で働いてました。今はSESの出向先で社内SEをしています。<br />
+          前職は食品工場で働いてました。今はSESで社内SEをしています。<br />
           よろしければTwitterフォローよろしくお願いします。id:ifrit_anplosia
         </p>
         <p>
@@ -25,11 +27,14 @@ export default function Home({ allPostsData }) {
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-              {title}
+              <Link href="/posts/[id]" as={`/posts/${id}`}>
+                <a>{title}</a>
+              </Link>
               <br />
-              {id}
+              <small className={utilStyles.lightText}>
+                <Date dateString={date} />
+              </small>
               <br />
-              {date}
             </li>
           ))}
         </ul>
